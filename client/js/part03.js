@@ -22,7 +22,28 @@ const data = [
   }
 ]
 
+//Swiper 사용(현업에서 자주쓰이는 2대장/jQuery & Swiper)
 
+const swiper = new Swiper('.swiper', {
+  autoplay: true,
+  loop: true,
+  speed: 2000, //다음 사진으로 넘어가는 속도
+  parallax: true,
+  pagination: {
+    el: '.pagination',
+    clickable: true,
+    bulletClass: 'bullet',  //bullet 클래스 이름 변경
+    bulletActiveClass: 'is-active',
+    renderBullet: function (index, className){
+      return /* html */ `
+        <span class="${className}">
+          <img src="./assets/part01/${data[index].src}" alt="${data[index].alt}" />
+        </span>
+      `
+    }
+
+  }
+})
 
 
 
