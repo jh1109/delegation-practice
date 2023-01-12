@@ -39,24 +39,22 @@ const navigation = getNode('.navigation');
 
 const visualImage = getNode('.visual img');
 
-console.log(navigation);
-
 function handler(e){
   let target = e.target.closest('li');
   if (!target) return;
   let list = navigation.children;
-  let index = attr(target, 'data-index');
   let img = getNode('.visual').img;
+  let index = attr(target, 'data-index');
   
-
+  
   list = Array.from(list) // list는 유사배열인데 forEach 프로퍼티가 없음. 그래서 만들어준거임.
   // let arr = [...list];
-
+  
   list.forEach(item => removeClass(item, 'is-active'));
+  // target.classList.add('is-active');
+  addClass(target, 'is-active');
   
   //index 값을 가져오자.
-  // console.log(target.getAttribute.dataset.index);
-
   //비주얼 안에 있는 이미지를 가져온다.
   // 이미지의 src 속성에 접근한다.
   // src의 값을 index로 바꿔준다.
@@ -66,16 +64,12 @@ function handler(e){
   //alt도 바꿔보자.
   attr(visualImage, 'alt', data[index-1].alt);
 
-
-
-  console.log(index);
-
-  // target.classList.add('is-active');
-  addClass(target, 'is-active');
   console.log(target);
 }
 
 navigation.addEventListener('click', handler);
+// navigation에 하나의 handler로 작성하고,
+// 각 li가 위임받아 동작할 수 있게 한 것임
 
 
 
