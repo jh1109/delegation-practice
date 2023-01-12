@@ -23,7 +23,9 @@ const data = [
   }
 ]
 
-/*
+
+// jQuery로 작성해보기
+
 $('.navigation > li').click(function(e){
   e.preventDefault();
   // 이 기능을 통해 a의 기능은 상실됨.
@@ -40,7 +42,7 @@ $('.navigation > li').click(function(e){
     'alt': data[index].alt
   });
 })
-*/
+
 
 // jQuery에서 $는 사실 정말 많은 코드로 짜여진 의미임.
 // 그래서 성능저하를 불러올 수 있음.

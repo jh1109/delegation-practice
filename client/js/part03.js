@@ -26,6 +26,9 @@ const data = [
 
 const swiper = new Swiper('.swiper', {
   autoplay: true,
+  autoplay: {
+    disableOnInteraction: false,
+  }, 
   loop: true,
   speed: 2000, //다음 사진으로 넘어가는 속도
   parallax: true,
@@ -34,9 +37,9 @@ const swiper = new Swiper('.swiper', {
     clickable: true,
     bulletClass: 'bullet',  //bullet 클래스 이름 변경
     bulletActiveClass: 'is-active',
-    renderBullet: function (index, className){
+    renderBullet: function (index, className){ //bulletClass
       return /* html */ `
-        <span class="${className}">
+        <span class="${className}"> 
           <img src="./assets/part01/${data[index].src}" alt="${data[index].alt}" />
         </span>
       `
@@ -44,16 +47,4 @@ const swiper = new Swiper('.swiper', {
 
   }
 })
-
-
-
-
-
-
-
-
-
-
-
-
 
